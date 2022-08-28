@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EmployeeModel>
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 100%;
+                border: 1px solid #ddd;
+            }
+
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>number of male records=@Model.Count()</h2>
+        <p>If you have a table that is too wide, you can add a container element with overflow-x:auto around the table, and it will display a horizontal scroll bar when needed.</p>
+        <p>Resize the browser window to see the effect. Try to remove the div element and see what happens to the table.</p>
+
+        <div style="overflow-x:auto;">
+            <table>
+
+                @for (int i = 0; i < @Model.Count(); i++)
+                {
+                    
+                        <tr>
+                            <th>@Model.ToList()[i].empno</th>
+                            <th>@Model.ToList()[i].first_name</th>
+                            <th>@Model.ToList()[i].last_name</th>
+                            <th>@Model.ToList()[i].gender</th>
+                            <th>@Model.ToList()[i].hire_date</th>
+                            <th>@Model.ToList()[i].birthdate</th>
+                        </tr>
+
+                    
+                }
+
+            </table>
+        </div>
+
+    </body>
+</html>
